@@ -38,6 +38,9 @@ def main_menu():
         elif command in data.COMMANDS['выйти']:
             break
 
+        else:
+            print(help.render_commands(header=False))
+
 
 def end():
     """Завершение работы приложения"""
