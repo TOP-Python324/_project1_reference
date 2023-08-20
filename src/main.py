@@ -27,6 +27,16 @@ def start():
 
 def main_menu():
     """Суперцикл главного меню."""
+    while True:
+        command = input(data.MESSAGES['ввод команды'])
+        
+        if command in data.COMMANDS['начать новую партию']:
+            ...
+        
+        # elif command in data.COMMANDS['']:
+        
+        elif command in data.COMMANDS['выйти']:
+            break
 
 
 def end():
