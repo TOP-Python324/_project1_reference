@@ -29,6 +29,12 @@ active_players_names: list[str] = []
 active_players_funcs: list[Callable] = []
 
 
+dim: int = 3
+all_cells: int = dim**2
+dim_range: range = range(dim)
+all_cells_range: range = range(1, all_cells+1)
+
+
 MESSAGES = {
     'ввод имени': "\n введите имя пользователя > ",
     'некорректное имя': " _ имя пользователя должно начинаться с буквы и далее содержать только буквы, цифры и символ '_' _",

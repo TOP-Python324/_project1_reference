@@ -6,6 +6,8 @@
 from configparser import ConfigParser
 from pathlib import Path
 from pprint import pprint
+# импорты модулей проекта
+import data
 
 
 def read_players(filein_path: Path, buffer: dict) -> None:
@@ -58,3 +60,11 @@ def write_saves(buffer: dict, fileout_path: Path) -> None:
     with open(fileout_path, 'w', encoding='utf-8') as fileout:
         fileout.write('\n'.join(players_data))
 
+
+def change_dim(new_dim: int) -> None:
+    """"""
+    data.dim = new_dim
+    data.all_cells = new_dim**2
+    data.dim_range = range(new_dim)
+    data.all_cells_range = range(1, data.all_cells+1)
+    ...
