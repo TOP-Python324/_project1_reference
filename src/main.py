@@ -21,6 +21,8 @@ def start():
     else:
         ...
         # help.show_full()
+    
+    player.get_player(True)
 
 
 def main_menu():
