@@ -69,7 +69,9 @@ def change_dim(new_dim: int) -> None:
     data.all_cells = new_dim**2
     data.dim_range = range(new_dim)
     data.all_cells_range = range(1, data.all_cells+1)
-    ...
+    data.win_combinations = generate_win_combinations(new_dim)
+    data.field = generate_field_template(new_dim)
+    data.empty = dict.fromkeys(data.all_cells_range, ' ')
 
 
 def header_text(
@@ -126,3 +128,22 @@ def columnize(text: str, column_width: int) -> list[str]:
             i += 1
     return [' '.join(line) for line in multiline]
 
+
+def generate_win_combinations(new_dim: int) -> list[set[int]]:
+    """"""
+    
+
+
+def generate_field_template(new_dim: int) -> str:
+    """"""
+    
+
+
+def render_field(pointer: int) -> str:
+    """"""
+    if pointer:
+        # вывод поля крестика (слева)
+        data.field.format(*(data.empty | data.turns).values())
+    else:
+        # вывод поля нолика (справа)
+        ...

@@ -35,6 +35,26 @@ def get_player(authorize: bool = False) -> None:
     data.active_players_funcs.append(get_human_turn)
     
 
-def get_human_turn() -> int:
+def get_human_turn() -> int | None:
+    """"""
+    while True:
+        turn = input(data.MESSAGES['ввод хода'])
+        if not turn:
+            return None
+        try:
+            turn = int(turn)
+        except ValueError:
+            print(data.MESSAGES['ход не число'])
+        else:
+            if turn in data.all_cells_range:
+                if turn not in data.turns:
+                    return turn
+                else:
+                    print(data.MESSAGES['ход в занятую'])
+            else:
+                print(data.MESSAGES['ход не в диапазоне'])
+
+
+def update_stats(game_result: tuple):
     """"""
 

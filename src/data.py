@@ -25,6 +25,8 @@ pat_player_name: Pattern = compile(r'[A-Za-zА-Яа-я]\w*')
 
 authorized: str = None
 
+TOKENS: tuple[str, str] = ('X', 'O')
+
 active_players_names: list[str] = []
 active_players_funcs: list[Callable] = []
 
@@ -34,12 +36,26 @@ all_cells: int = dim**2
 dim_range: range = range(dim)
 all_cells_range: range = range(1, all_cells+1)
 
+win_combinations: list[set[int]] = []
+
+field: str = None
+
+empty: dict[int, str] = {}
+turns: dict[int, str] = {}
+
 
 MESSAGES = {
     'ввод имени': "\n _ введите имя пользователя > ",
     'некорректное имя': " ! имя пользователя должно начинаться с буквы и далее содержать только буквы, цифры и символ '_'",
+    
     'ввод команды': "\n _ введите команду > ",
     'некорректная команда': ' ! используйте команды из списка ниже',
+    
+    'ввод хода': '\n _ введите номер свободной ячейки > ',
+    'ход не число': ' ! номер ячейки должен быть числом',
+    'ход не в диапазоне': f' ! номер ячейки должен находиться в диапазоне от 1 до {all_cells} включительно',
+    'ход в занятую': ' ! ячейка занята',
+    
     # '': "",
 }
 

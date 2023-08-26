@@ -60,3 +60,16 @@ for turn in range(9):
     turns |= {turn: TOKENS[o]}
 
 
+# >>> names = ['a', 'b']
+# >>>
+# >>> p = 0
+# >>> names[p]
+# 'a'
+# >>> names[p-1]
+# 'b'
+# >>>
+# >>> p = 1
+# >>> names[p]
+# 'b'
+# >>> names[p-1]
+# 'a'
