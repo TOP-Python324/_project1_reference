@@ -9,6 +9,7 @@ from pprint import pprint
 from shutil import get_terminal_size
 from typing import Literal
 # импорты модулей проекта
+import bot
 import data
 
 
@@ -72,6 +73,29 @@ def change_dim(new_dim: int) -> None:
     data.win_combinations = generate_win_combinations(new_dim)
     data.field = generate_field_template(new_dim)
     data.empty = dict.fromkeys(data.all_cells_range, ' ')
+    data.START_MATRICES = (
+        bot.calc_sm_cross(),
+        bot.calc_sm_zero()
+    )
+
+
+def concatenate_rows(
+        multiline1: str,
+        multiline2: str,
+        *multilines: str,
+        padding: int = 8
+) -> str:
+    """Объединяет произвольное количество строк текстов-колонок в одну строку с несколькими колонками и отступом между ними.
+    
+    :param padding: ширина отступа между колонками в пробелах
+    """
+    multilines = multiline1, multiline2, *multilines
+    multilines = [m.split('\n') for m in multilines]
+    padding = ' '*padding
+    return '\n'.join(
+        padding.join(row)
+        for row in zip(*multilines)
+    )
 
 
 def header_text(

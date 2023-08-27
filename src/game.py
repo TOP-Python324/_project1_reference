@@ -46,7 +46,7 @@ def game() -> tuple[str, str] | Literal[()] | None:
         # индекс-указатель (pointer)
         p = turn % 2
         # запрос или вычисление хода
-        turn = data.active_players_funcs[p]()
+        turn = data.active_players_funcs[p](p)
         # проверка на досрочное завершение партии
         if turn is None:
             return None
